@@ -1,8 +1,14 @@
 import React from 'react';
 import wallpapers from '../configs/wallpapers';
+import Dock from '../components/dock/Dock';
+import TopBar from '../components/TopBar';
 
 const Desktop = () => {
   const dark = true;
+
+  const renderApps = () => {
+    return <div></div>;
+  };
 
   return (
     <div
@@ -11,7 +17,11 @@ const Desktop = () => {
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
         filter: `brightness( ${(70 as number) * 0.7 + 50}% )`
       }}
-    ></div>
+    >
+      <TopBar />
+      <>{renderApps()}</>
+      <Dock />
+    </div>
   );
 };
 
